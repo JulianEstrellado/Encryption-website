@@ -1,0 +1,5 @@
+node_modules/
+uploads/
+temp/
+metadata.json
+.DS_Store

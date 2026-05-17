@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Secure File Sharing</title>
+    <style>
+      body { font-family: Arial, sans-serif; background: #f4f6fb; color: #222; padding: 40px; }
+      .card { max-width: 420px; margin: 0 auto; background: #fff; border-radius: 12px; box-shadow: 0 18px 40px rgba(0,0,0,0.08); padding: 32px; }
+      label { display: block; margin-bottom: 14px; font-weight: 600; }
+      input { width: 100%; padding: 12px 14px; border: 1px solid #dde3f0; border-radius: 8px; }
+      button { width: 100%; background: #3239ff; color: #fff; padding: 14px 20px; border: none; border-radius: 10px; cursor: pointer; }
+      a { color: #3239ff; text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>Register</h1>
+      <form method="POST" action="/register">
+        <label>
+          Username
+          <input type="text" name="username" required minlength="3" />
+        </label>
+        <label>
+          Password
+          <input type="password" name="password" required minlength="8" />
+        </label>
+        <button type="submit">Create account</button>
+      </form>
+      <p style="margin-top:20px;">Already have an account? <a href="/login">Login</a></p>
+    </div>
+  </body>
+</html>
