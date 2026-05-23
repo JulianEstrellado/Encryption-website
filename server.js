@@ -108,7 +108,7 @@ app.post('/login', async (req, res) => {
   const metadata = await readMetadata();
   const user = metadata.users.find((entry) => entry.username === username);
   if (!user || !bcrypt.compareSync(password, user.passwordHash)) {
-    return res.status(401).send('Invalid username or password.');
+    return res.redirect('/login?error=1');
   }
 
   req.session.username = user.username;
@@ -366,7 +366,10 @@ app.get('/upload', requireAuth, async (req, res) => {
             <div class="brand">
               <div class="logo">Security Share</div>
             </div>
-            <a class="button-link" href="/my-files">My Files</a>
+            <div class="nav-links">
+              <a class="button-link" href="/my-files">My Files</a>
+              <a class="button-link" href="/logout">Logout</a>
+            </div>
             <div class="user-welcome">Welcome, <strong>${req.session.username}</strong></div>
           </div>
 

@@ -114,6 +114,7 @@
       <div class="card">
         <h1>Welcome Back</h1>
         <p class="subtitle">Sign in to access your secure files</p>
+        <div class="error-message" id="errorMessage" style="display:none; color:#b00020; margin-bottom:20px; font-weight:600;">Invalid username or password.</div>
         <form method="POST" action="/login">
           <label for="username">Username</label>
           <input type="text" id="username" name="username" required />
@@ -126,5 +127,11 @@
         <p class="footer">Don't have an account? <a href="/register">Create Account</a></p>
       </div>
     </div>
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('error') === '1') {
+        document.getElementById('errorMessage').style.display = 'block';
+      }
+    </script>
   </body>
 </html>
